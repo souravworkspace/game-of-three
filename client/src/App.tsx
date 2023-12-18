@@ -102,7 +102,7 @@ const GameClient = () => {
       <div className='gameBoard'>
         <div>Playing Now: Player{currentPlayerId}</div>
         <div>Current Number: {currentNumber}</div>
-        <div>
+        <div className='historyContainer'>
           <ul>
             {history.map((move: string, index: number) => (
               <li key={index}>{move}</li>
