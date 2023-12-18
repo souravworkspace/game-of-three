@@ -1,0 +1,16 @@
+// Place your settings in this file to overwrite the default settings
+{
+  "files.exclude": {
+    // ".vscode": true,
+    "client/build": true,
+    "dist": true,
+    "node_modules": true,
+    "client/node_modules": true,
+    "yarn.lock": true,
+    "client/yarn.lock": true
+  },
+  "eslint.enable": true,
+  "editor.formatOnSave": true,
+  "eslint.run": "onSave",
+  "editor.tabSize": 2,
+}
