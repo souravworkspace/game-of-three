@@ -31,3 +31,9 @@ yarn start-server
 ```
 
 Server configurations can be adjusted with a `.env` in the root directory for local purposes.
+
+## Diagrams
+
+![Alt text](client-server-diagram.png)
+
+![Alt text](sequence-diagram.png)
