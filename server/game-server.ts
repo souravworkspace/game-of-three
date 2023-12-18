@@ -9,6 +9,7 @@ import {
   ReadyMessage,
   UpdateMessage
 } from './messages';
+import config from './config';
 
 enum GameStatus {
   WAITING = 'WAITING',
@@ -33,7 +34,7 @@ export class GameServer {
   }
 
   private getRandomNumber(): number {
-    return Math.floor(Math.random() * 10000);
+    return config.DIFFICULTY + Math.floor(Math.random() * config.DIFFICULTY * 9);
   }
 
   private getGameState(): GameState {
