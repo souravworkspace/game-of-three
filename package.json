@@ -5,6 +5,7 @@
   "author": "sourav.workspace@gmail.com",
   "license": "MIT",
   "scripts": {
+    "setup": "yarn && cd ./client && yarn",
     "build-client": "rm -rf ./client/build && cd ./client && yarn build",
     "build-server": "rm -rf ./dist && npx tsc",
     "build": "yarn build-client && yarn build-server",

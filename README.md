@@ -10,10 +10,19 @@ When a player starts, it incepts a random (whole) number and sends it to the sec
 
 ![Alt text](image.png)
 
+## Requrements
+
+You will need:
+
+- `yarn`
+- `node 20.10.0`
+
+Recommended: Install node version using `nvm`.
+
 ## Install dependencies:
 
 ```
-yarn
+yarn setup
 ```
 
 ## Build and Start
@@ -28,6 +37,21 @@ To run the server:
 
 ```
 yarn start-server
+```
+
+## Development
+
+For server:
+
+```
+yarn dev
+```
+
+For client:
+
+```
+cd client
+yarn start
 ```
 
 Server configurations can be adjusted with a `.env` in the root directory for local purposes.
