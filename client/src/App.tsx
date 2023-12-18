@@ -33,7 +33,7 @@ const GameClient = () => {
         setCurrentNumber(data.state.currentNumber);
         setHistory(data.history);
       } else if (data.type === 'ERROR' || data.type === 'INFO') {
-        setMessage(data.message);
+        setMessageWithTimeout(data.message);
       } else if (data.type === 'READY') {
         setCurrentNumber(data.number);
         setShowStartButton(true);
@@ -62,6 +62,16 @@ const GameClient = () => {
     };
   }, [automaticMode]); // Run when automaticMode changes or on component mount
 
+  let messageTimeout: NodeJS.Timeout;
+
+  const setMessageWithTimeout = (msg: string | null) => {
+    if (messageTimeout) clearTimeout(messageTimeout);
+    setMessage(msg);
+    messageTimeout = setTimeout(() => {
+      setMessage(null);
+    }, 4000);
+  };
+
   const sendMessageToServer = (message: {[key: string]: any}) => {
     if (websocket && websocket.readyState === WebSocket.OPEN) {
       websocket.send(JSON.stringify(message));
@@ -89,7 +99,7 @@ const GameClient = () => {
     }
 
     return (
-      <div>
+      <div className='gameBoard'>
         <div>Playing Now: Player{currentPlayerId}</div>
         <div>Current Number: {currentNumber}</div>
         <div>
@@ -107,7 +117,7 @@ const GameClient = () => {
           <button onClick={() => handleMove(0)}>Keep Number</button>
           <button onClick={() => handleMove(1)}>Add 1</button>
         </div>
-        {message && <div>Message: {message}</div>}
+        {message && <div className='message'>Message: {message}</div>}
       </div>
     );
   };
